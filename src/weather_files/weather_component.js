@@ -7,8 +7,8 @@ class Weather extends Component {
 
     componentWillMount(){
         var name = "codemzy";
-        $.get('https://samples.openweathermap.org/data/2.5/weather?id=6087824&appid=2fbd68a1db191e6cf5ee3f331f83447a' + name, function(response) {
-          console.log(response);
+        $.get('https://api.openweathermap.org/data/2.5/weather?id=6087824&APPID=2fbd68a1db191e6cf5ee3f331f83447a', function(response) {
+          console.log(response);//2fbd68a1db191e6cf5ee3f331f83447a
         });
     }
 
