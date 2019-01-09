@@ -32,7 +32,7 @@ class Weather extends Component {
     render(){
         return (
             <div>
-                This is the weather!
+                {convert_temp(273.15)}
             </div>
         )
     }
