@@ -22,7 +22,7 @@ class Time extends Component {
 }
 function mapStateToProps(state){
     return {
-        time: state.time
+        time: state.time //passed to the component as props, so can do this.props.time, instead of this.props.state.tiem
     };
 };
 function mapDispatchToProps(dispatch){

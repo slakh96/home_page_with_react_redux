@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import $ from 'jquery';
 import {convert_temp} from "./weather_utilities.js";
+import weather_update from "./weather_action.js";
 
 class Weather extends Component {
 
@@ -24,6 +25,10 @@ class Weather extends Component {
         let temp_min = convert_temp(272.15);
         let weather_description = "light rain";
     }
+    componentDidMount() {//delays for 1 second before sending the time update again
+        //this.interval = setInterval(() => this.props.weather_update(), 1000);
+      }
+
     render(){
         return (
             <div>
@@ -32,4 +37,12 @@ class Weather extends Component {
         )
     }
 }
-export default Weather;
+function mapStateToProps(state){
+    return {
+        weather: state.weather
+    };
+};
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({weather_update: weather_update}, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Weather);
