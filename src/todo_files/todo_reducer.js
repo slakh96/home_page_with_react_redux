@@ -8,11 +8,11 @@ export default function(state = [], action){
             state = [...state_set];
             return state;
         case "CHECKED":
-            state_set = new Set(state);
-            state = [...state_set];
+            state_set = new Set(state);//Remove duplicate values from list of todos
+            state = [...state_set];//spread syntax, makes state hold all the values of state_set
             let y = state.indexOf(action.payload);
             if (y >= 0){
-                state.splice(y, 1);
+                state.splice(y, 1);//removes the todo at index y
                 return state;
             }
             else {
